@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Airport — Travel English</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #4a8bb5;
+      --hero1:  #5a9ec8;
+      --hero2:  #72b4d8;
+      --hero3:  #94cce6;
+      --foam:   #f6fbfd;
+      --text:   #2a3d4a;
+      --muted:  #8aacbe;
+      --border: #e0eef5;
+      --white:  #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--foam);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    nav {
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    nav a {
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+    nav span {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .hero {
+      background: linear-gradient(160deg, var(--hero1) 0%, var(--hero2) 50%, var(--hero3) 100%);
+      padding: 52px 24px 44px;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.95);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      font-weight: 300;
+    }
+
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .word-list { display: flex; flex-direction: column; }
+
+    .word-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .word-item:last-child { border-bottom: none; }
+
+    .word-en {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text);
+      min-width: 230px;
+      flex-shrink: 0;
+    }
+    .word-divider { color: var(--border); flex-shrink: 0; }
+    .word-ru {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    .phrases-section { margin-top: 48px; }
+    .phrase-block { margin-bottom: 32px; }
+    .phrase-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+    .phrase-list { display: flex; flex-direction: column; gap: 10px; }
+    .phrase-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .phrase-item em {
+      display: block;
+      font-style: normal;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.76rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .word-en { min-width: 160px; font-size: 0.9rem; }
+      .word-ru { font-size: 0.82rem; }
+      .content { padding: 28px 16px 48px; }
+      nav { padding: 12px 16px; }
+      .hero { padding: 40px 20px 34px; }
+    }
+    @media (max-width: 380px) {
+      .word-item { flex-direction: column; gap: 2px; }
+      .word-divider { display: none; }
+      .word-en { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="travel-english.html">← Travel English</a>
+  <span>🛫 The Airport</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Travel English</div>
+  <h1>The Airport</h1>
+  <p>30 words and expressions</p>
+</div>
+
+<div class="content">
+
+  <div class="section-title">Words & Expressions</div>
+
+  <div class="word-list">
+    <div class="word-item"><span class="word-en">Passport</span><span class="word-divider">—</span><span class="word-ru">паспорт</span></div>
+    <div class="word-item"><span class="word-en">Boarding card / boarding pass</span><span class="word-divider">—</span><span class="word-ru">посадочный талон</span></div>
+    <div class="word-item"><span class="word-en">Flight information screen</span><span class="word-divider">—</span><span class="word-ru">информационное табло</span></div>
+    <div class="word-item"><span class="word-en">Check-in desk</span><span class="word-divider">—</span><span class="word-ru">стойка регистрации</span></div>
+    <div class="word-item"><span class="word-en">Check-in desk attendant</span><span class="word-divider">—</span><span class="word-ru">сотрудник стойки регистрации</span></div>
+    <div class="word-item"><span class="word-en">Baggage allowance</span><span class="word-divider">—</span><span class="word-ru">норма провоза багажа</span></div>
+    <div class="word-item"><span class="word-en">Excess baggage charge</span><span class="word-divider">—</span><span class="word-ru">доплата за перевес</span></div>
+    <div class="word-item"><span class="word-en">Suitcase</span><span class="word-divider">—</span><span class="word-ru">чемодан</span></div>
+    <div class="word-item"><span class="word-en">Baggage / luggage</span><span class="word-divider">—</span><span class="word-ru">багаж</span></div>
+    <div class="word-item"><span class="word-en">Hand luggage / carry-on bag</span><span class="word-divider">—</span><span class="word-ru">ручная кладь</span></div>
+    <div class="word-item"><span class="word-en">Luggage trolley</span><span class="word-divider">—</span><span class="word-ru">тележка для багажа</span></div>
+    <div class="word-item"><span class="word-en">Baggage carousel</span><span class="word-divider">—</span><span class="word-ru">лента выдачи багажа</span></div>
+    <div class="word-item"><span class="word-en">Luggage belt</span><span class="word-divider">—</span><span class="word-ru">конвейерная лента</span></div>
+    <div class="word-item"><span class="word-en">Terminal</span><span class="word-divider">—</span><span class="word-ru">терминал</span></div>
+    <div class="word-item"><span class="word-en">Departure lounge</span><span class="word-divider">—</span><span class="word-ru">зал ожидания</span></div>
+    <div class="word-item"><span class="word-en">Security check-in area</span><span class="word-divider">—</span><span class="word-ru">зона паспортного контроля</span></div>
+    <div class="word-item"><span class="word-en">Boarding gate</span><span class="word-divider">—</span><span class="word-ru">выход на посадку</span></div>
+    <div class="word-item"><span class="word-en">Aeroplane / airplane</span><span class="word-divider">—</span><span class="word-ru">самолёт</span></div>
+    <div class="word-item"><span class="word-en">Window seat</span><span class="word-divider">—</span><span class="word-ru">место у окна</span></div>
+    <div class="word-item"><span class="word-en">Aisle seat</span><span class="word-divider">—</span><span class="word-ru">место у прохода</span></div>
+    <div class="word-item"><span class="word-en">Departure time</span><span class="word-divider">—</span><span class="word-ru">время вылета</span></div>
+    <div class="word-item"><span class="word-en">Arrival time</span><span class="word-divider">—</span><span class="word-ru">время прилёта</span></div>
+    <div class="word-item"><span class="word-en">Take off</span><span class="word-divider">—</span><span class="word-ru">взлететь</span></div>
+    <div class="word-item"><span class="word-en">Land</span><span class="word-divider">—</span><span class="word-ru">приземлиться</span></div>
+    <div class="word-item"><span class="word-en">Delayed</span><span class="word-divider">—</span><span class="word-ru">задержан</span></div>
+    <div class="word-item"><span class="word-en">Cancelled</span><span class="word-divider">—</span><span class="word-ru">отменён</span></div>
+    <div class="word-item"><span class="word-en">Taxi</span><span class="word-divider">—</span><span class="word-ru">такси</span></div>
+    <div class="word-item"><span class="word-en">Airport</span><span class="word-divider">—</span><span class="word-ru">аэропорт</span></div>
+    <div class="word-item"><span class="word-en">Board</span><span class="word-divider">—</span><span class="word-ru">сесть на борт</span></div>
+    <div class="word-item"><span class="word-en">Gate</span><span class="word-divider">—</span><span class="word-ru">гейт / выход</span></div>
+  </div>
+
+  <div class="phrases-section">
+    <div class="section-title">Useful Phrases</div>
+
+    <div class="phrase-block">
+      <h3>What you say</h3>
+      <div class="phrase-list">
+        <div class="phrase-item">Where's the check-in? I can't find it.<em>Где стойка регистрации? Никак не могу найти.</em></div>
+        <div class="phrase-item">Is my bag too heavy?<em>Мой багаж не слишком тяжёлый?</em></div>
+        <div class="phrase-item">Can I take this in my carry-on?<em>Это можно взять в ручную кладь?</em></div>
+        <div class="phrase-item">Sorry, is this queue for gate 14?<em>Простите, эта очередь на выход 14?</em></div>
+        <div class="phrase-item">How long until we board?<em>Сколько ждать до посадки?</em></div>
+        <div class="phrase-item">Do I need to take my laptop out?<em>Нужно вынуть ноутбук из сумки?</em></div>
+        <div class="phrase-item">Is there a lounge I can use?<em>Здесь есть зал ожидания, куда я могу пройти?</em></div>
+      </div>
+    </div>
+
+    <div class="phrase-block">
+      <h3>What you hear</h3>
+      <div class="phrase-list">
+        <div class="phrase-item">Your bag is over the limit.<em>Ваш багаж превышает допустимый вес.</em></div>
+        <div class="phrase-item">Can I see your passport?<em>Можно ваш паспорт?</em></div>
+        <div class="phrase-item">We're just waiting for a few more passengers.<em>Мы ждём ещё нескольких пассажиров.</em></div>
+        <div class="phrase-item">The flight's been delayed by about an hour.<em>Рейс задержан примерно на час.</em></div>
+        <div class="phrase-item">Last call for passengers on flight BA204.<em>Последний вызов для пассажиров рейса BA204.</em></div>
+        <div class="phrase-item">You need to go to gate 7 now.<em>Вам нужно пройти к выходу 7.</em></div>
+        <div class="phrase-item">Boarding will begin shortly.<em>Посадка начнётся совсем скоро.</em></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <a href="travel-english.html">Travel English</a> · The Airport · Nara English · 2026
+</footer>
+
+</body>
+</html>
