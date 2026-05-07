@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nara English</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #f5f0e8;
+      --beige: #ede7d9;
+      --burgundy: #7a1f2e;
+      --burgundy-light: #9e3044;
+      --burgundy-pale: #e8d5d8;
+      --text: #2e1f22;
+      --text-muted: #8a7070;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Subtle texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      padding: 60px 0 40px;
+      text-align: center;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .star {
+      width: 10px;
+      height: 10px;
+      background: var(--burgundy);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      animation: fadeUp 0.9s ease both;
+    }
+    .star:nth-child(1) { animation-delay: 0.1s; transform: scale(1.6); }
+    .star:nth-child(2) { animation-delay: 0.2s; }
+    .star:nth-child(3) { animation-delay: 0.15s; transform: scale(1.3); }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 8vw, 4.2rem);
+      font-weight: 300;
+      color: var(--burgundy);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      animation: fadeUp 0.9s ease 0.15s both;
+    }
+
+    .tagline {
+      margin-top: 14px;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      animation: fadeUp 0.9s ease 0.25s both;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--burgundy);
+      margin: 28px auto;
+      opacity: 0.4;
+      animation: fadeUp 0.9s ease 0.3s both;
+    }
+
+    /* About */
+    .about {
+      animation: fadeUp 0.9s ease 0.35s both;
+    }
+
+    .lang-block {
+      background: var(--beige);
+      border: 1px solid var(--burgundy-pale);
+      border-radius: 2px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .lang-label {
+      position: absolute;
+      top: -10px;
+      left: 24px;
+      background: var(--beige);
+      padding: 0 8px;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      font-weight: 500;
+    }
+
+    .lang-block p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--text);
+    }
+
+    .lang-block p + p {
+      margin-top: 10px;
+    }
+
+    /* Categories */
+    .categories {
+      margin-top: 48px;
+      animation: fadeUp 0.9s ease 0.45s both;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      text-align: center;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .category {
+      background: var(--beige);
+      border: 1px solid var(--burgundy-pale);
+      border-radius: 2px;
+      padding: 22px 20px;
+      transition: border-color 0.25s, background 0.25s;
+    }
+
+    .category:hover {
+      border-color: var(--burgundy);
+      background: #ede0e2;
+    }
+
+    .category-icon {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .category-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .category-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 56px;
+      padding-bottom: 48px;
+      text-align: center;
+      animation: fadeUp 0.9s ease 0.55s both;
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--burgundy);
+      margin: 0 auto 24px;
+      opacity: 0.3;
+    }
+
+    .tg-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--burgundy);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid var(--burgundy);
+      padding: 10px 22px;
+      border-radius: 1px;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .tg-link:hover {
+      background: var(--burgundy);
+      color: var(--cream);
+    }
+
+    .tg-link svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .handle {
+      margin-top: 16px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: 1fr; }
+      .lang-block { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+      </div>
+      <h1>Nara English</h1>
+      <p class="tagline">English Teacher &nbsp;·&nbsp; Traveller &nbsp;·&nbsp; Creator</p>
+      <div class="divider"></div>
+    </header>
+
+    <section class="about">
+      <div class="lang-block">
+        <span class="lang-label">EN</span>
+        <p>Hi, I'm Nara 🤍</p>
+        <p>I live and work in the Maldives. I spent 4 years teaching English and even though I've stepped away from the classroom, the love for language never left.</p>
+        <p>This is my little corner of the internet — lessons, word breakdowns, and ideas I've been collecting for a while. Make yourself at home. Welcome 🫶</p>
+      </div>
+
+      <div class="lang-block">
+        <span class="lang-label">RU</span>
+        <p>Привет, я Нара 🤍</p>
+        <p>Живу и работаю на Мальдивах. 4 года преподавала английский — и хотя ушла из школы, любовь к языку никуда не делась.</p>
+        <p>Это моё маленькое место в интернете — уроки, разборы слов и идеи, которые копились внутри. Надеюсь, вам здесь будет уютно. Добро пожаловать 🫶</p>
+      </div>
+    </section>
+
+    <section class="categories">
+      <p class="section-title">What's here</p>
+      <div class="grid">
+        <div class="category">
+          <span class="category-icon">✈️</span>
+          <div class="category-tag">#TravelEnglish</div>
+          <div class="category-name">Travel English</div>
+        </div>
+        <div class="category">
+          <span class="category-icon">📖</span>
+          <div class="category-tag">#JournalEnglish</div>
+          <div class="category-name">Journal English</div>
+        </div>
+        <div class="category">
+          <span class="category-icon">✨</span>
+          <div class="category-tag">#DailyEnglish</div>
+          <div class="category-name">Daily English</div>
+        </div>
+        <div class="category">
+          <span class="category-icon">🌴</span>
+          <div class="category-tag">#MyLifeEnglish</div>
+          <div class="category-name">My Life English</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-divider"></div>
+      <a href="https://t.me/narail_eng" target="_blank" class="tg-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.6l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.978.959z"/>
+        </svg>
+        Telegram Channel
+      </a>
+      <p class="handle">@narail_eng</p>
+    </footer>
+
+  </div>
+</body>
+</html>
