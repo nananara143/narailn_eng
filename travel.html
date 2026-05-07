@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Travel Changes the Way You Think — Nara English</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --dark: #1C1C1A;
+    --olive: #4A5A2A;
+    --olive-light: #6B7A48;
+    --olive-muted: #B8C898;
+    --text: #2A2820;
+    --text-secondary: #4A4840;
+    --accent: #3A4820;
+    --correct: #4A7A3A;
+    --wrong: #8A3A2A;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--cream); color:var(--text); font-family:'DM Sans',sans-serif; font-weight:400; line-height:1.7; font-size:15px; }
+
+  /* DECO */
+  .deco-container { position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:0; overflow:hidden; }
+  .content-wrap { position:relative; z-index:1; }
+
+  /* HEADER */
+  .site-header { display:flex; justify-content:space-between; align-items:center; padding:22px 5%; border-bottom:1px solid rgba(74,90,42,0.2); }
+  .brand { font-family:'Playfair Display',serif; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--olive); }
+  .header-line { flex:1; height:1px; background:linear-gradient(to right,transparent,var(--olive-muted),transparent); margin:0 24px; }
+  .year { font-size:12px; letter-spacing:0.15em; color:var(--text-secondary); }
+
+  /* PAGE */
+  .page { max-width:820px; margin:0 auto; padding:0 5% 80px; }
+
+  /* ARTICLE */
+  .article-section { padding:52px 0 60px; }
+  .article-tag { font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color:var(--olive); margin-bottom:18px; display:flex; align-items:center; gap:12px; font-weight:600; }
+  .article-tag::after { content:''; display:inline-block; width:36px; height:1px; background:var(--olive-light); }
+  .article-title { font-family:'Playfair Display',serif; font-size:clamp(32px,6vw,58px); line-height:1.1; font-weight:700; color:var(--dark); margin-bottom:30px; }
+  .article-intro { font-family:'Cormorant Garamond',serif; font-size:19px; font-style:italic; color:var(--text-secondary); line-height:1.7; margin-bottom:40px; padding-left:18px; border-left:2px solid var(--olive-muted); max-width:560px; }
+  .article-content h3 { font-family:'Playfair Display',serif; font-size:15.5px; font-weight:700; color:var(--accent); margin:26px 0 7px; text-decoration:underline; text-underline-offset:4px; }
+  .article-content h3:first-child { margin-top:0; }
+  .article-content p { font-size:14.5px; color:var(--text); line-height:1.85; }
+
+  /* DIVIDER */
+  .divider { display:flex; align-items:center; gap:18px; margin:52px 0; }
+  .divider .line { flex:1; height:1px; background:linear-gradient(to right,transparent,var(--olive-muted),transparent); }
+  .divider .dot { font-size:14px; color:var(--olive-light); }
+
+  /* VOCAB */
+  .section-title { font-family:'Playfair Display',serif; font-size:clamp(24px,4vw,36px); font-weight:700; color:var(--dark); margin-bottom:30px; letter-spacing:0.03em; }
+  .vocab-sub { font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--olive); font-weight:600; margin:28px 0 12px; }
+  .vocab-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:2px 36px; }
+  .vocab-list li { font-size:13.5px; color:var(--text); padding:7px 0; border-bottom:1px solid rgba(74,90,42,0.09); display:flex; align-items:baseline; gap:5px; flex-wrap:wrap; }
+  .vocab-list li::before { content:'•'; color:var(--olive-light); font-size:8px; flex-shrink:0; }
+  .vw { font-weight:600; color:var(--accent); }
+  .vi { font-size:11px; color:var(--text-secondary); }
+  .vt { font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--text-secondary); font-size:13px; }
+  .phrases-list { list-style:none; display:grid; gap:5px; }
+  .phrases-list li { font-size:13.5px; color:var(--text); padding:8px 14px; background:rgba(74,90,42,0.055); border-left:2px solid var(--olive-muted); border-radius:0 3px 3px 0; }
+  .pe { font-weight:600; color:var(--accent); }
+  .pr { font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--text-secondary); font-size:13px; }
+
+  /* TASKS */
+  .warmup-box { background:linear-gradient(135deg,rgba(74,90,42,0.07),rgba(184,200,152,0.16)); border:1px solid rgba(184,200,152,0.55); border-radius:8px; padding:28px 34px; margin-bottom:46px; position:relative; overflow:hidden; }
+  .warmup-box::after { content:'☀'; position:absolute; top:-6px; right:14px; font-size:64px; opacity:0.07; line-height:1; }
+  .warmup-box h3 { font-family:'Playfair Display',serif; font-size:20px; color:var(--accent); margin-bottom:14px; }
+  .warmup-box ol { padding-left:18px; }
+  .warmup-box ol li { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--text); margin-bottom:6px; line-height:1.5; }
+
+  .task-block { margin-bottom:46px; }
+  .task-header { display:flex; align-items:center; gap:14px; margin-bottom:5px; }
+  .task-num { font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cream); background:var(--olive); padding:4px 11px; border-radius:2px; font-weight:600; white-space:nowrap; }
+  .task-name { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--dark); }
+  .task-inst { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15px; color:var(--text-secondary); margin:5px 0 16px; }
+
+  /* TRUE FALSE */
+  .tf-list { list-style:none; }
+  .tf-item { display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid rgba(74,90,42,0.08); font-size:14px; color:var(--text); flex-wrap:wrap; line-height:1.6; }
+  .tf-num { font-family:'Playfair Display',serif; font-size:10.5px; color:var(--olive-light); min-width:20px; flex-shrink:0; }
+  .tf-text { flex:1; min-width:180px; }
+  .tf-btns { display:flex; gap:5px; flex-shrink:0; }
+  .tf-btn { font-size:11px; font-weight:600; padding:3px 11px; border-radius:3px; border:1.5px solid var(--olive-muted); background:transparent; color:var(--text-secondary); cursor:pointer; transition:all 0.18s; font-family:'DM Sans',sans-serif; }
+  .tf-btn:hover { background:var(--olive-muted); color:var(--accent); }
+  .tf-btn.correct { background:var(--correct); border-color:var(--correct); color:#fff; }
+  .tf-btn.wrong { background:var(--wrong); border-color:var(--wrong); color:#fff; }
+  .tf-fb { font-size:13px; min-width:14px; }
+
+  /* FILL GAP */
+  .gap-list { list-style:none; }
+  .gap-item { display:flex; align-items:center; gap:7px; padding:9px 0; border-bottom:1px solid rgba(74,90,42,0.08); font-size:14px; color:var(--text); flex-wrap:wrap; line-height:1.8; }
+  .gap-num { font-family:'Playfair Display',serif; font-size:10.5px; color:var(--olive-light); min-width:20px; flex-shrink:0; }
+  .gap-input { border:none; border-bottom:1.5px solid var(--olive-muted); background:transparent; font-family:'DM Sans',sans-serif; font-size:13.5px; color:var(--accent); font-weight:600; padding:2px 5px; outline:none; min-width:100px; max-width:160px; transition:border-color 0.2s; }
+  .gap-input:focus { border-bottom-color:var(--olive); }
+  .gap-input.correct { border-bottom-color:var(--correct); color:var(--correct); }
+  .gap-input.wrong { border-bottom-color:var(--wrong); color:var(--wrong); }
+
+  .check-btn { margin-top:16px; padding:9px 26px; background:var(--olive); color:var(--cream); border:none; border-radius:3px; font-family:'DM Sans',sans-serif; font-size:11.5px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:background 0.2s; }
+  .check-btn:hover { background:var(--accent); }
+
+  /* MATCH — two columns side by side */
+  .match-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 32px; }
+  .match-col { list-style:none; }
+  .match-item { display:flex; align-items:flex-start; gap:9px; padding:9px 8px; border-bottom:1px solid rgba(74,90,42,0.08); font-size:13.5px; color:var(--text); cursor:pointer; transition:all 0.15s; border-radius:3px; user-select:none; line-height:1.5; }
+  .match-item:hover { background:rgba(74,90,42,0.06); }
+  .match-item.selected { background:rgba(74,90,42,0.13); color:var(--accent); font-weight:600; }
+  .match-item.matched-correct { background:rgba(74,122,58,0.1); color:var(--correct); pointer-events:none; font-weight:600; }
+  .match-item.matched-wrong { background:rgba(138,58,42,0.1); color:var(--wrong); }
+  .match-badge { font-family:'Playfair Display',serif; font-size:10.5px; font-weight:700; color:var(--olive-light); min-width:20px; flex-shrink:0; padding-top:2px; }
+
+  /* FIND CORRECT */
+  .correct-list { list-style:none; }
+  .correct-item { padding:11px 0; border-bottom:1px solid rgba(74,90,42,0.08); }
+  .ci-top { display:flex; align-items:flex-start; gap:9px; margin-bottom:7px; }
+  .ci-num { font-family:'Playfair Display',serif; font-size:10.5px; color:var(--olive-light); min-width:20px; flex-shrink:0; padding-top:3px; }
+  .ci-sentence { font-size:14px; color:var(--text); line-height:1.65; flex:1; }
+  .ci-input-wrap { display:flex; align-items:center; gap:9px; padding-left:29px; }
+  .ci-label { font-size:11px; color:var(--text-secondary); white-space:nowrap; font-style:italic; }
+  .ci-input { flex:1; border:none; border-bottom:1.5px solid var(--olive-muted); background:transparent; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--accent); padding:3px 5px; outline:none; transition:border-color 0.2s; }
+  .ci-input:focus { border-bottom-color:var(--olive); }
+  .ci-input.correct { border-bottom-color:var(--correct); color:var(--correct); }
+  .ci-input.wrong { border-bottom-color:var(--wrong); color:var(--wrong); }
+
+  /* COOL DOWN */
+  .cooldown-box { background:var(--dark); border-radius:8px; padding:38px 44px; position:relative; overflow:hidden; margin-top:56px; }
+  .cooldown-box::before { content:'🌙'; position:absolute; top:-6px; right:18px; font-size:80px; opacity:0.06; line-height:1; }
+  .cooldown-box h3 { font-family:'Playfair Display',serif; font-size:24px; color:var(--cream); margin-bottom:5px; }
+  .cd-sub { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15.5px; color:var(--olive-muted); margin-bottom:20px; }
+  .cooldown-box ol { padding-left:18px; }
+  .cooldown-box ol li { font-size:14px; color:rgba(245,240,232,0.88); margin-bottom:9px; line-height:1.65; padding-left:4px; }
+  .cd-tip { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:14px; color:var(--olive-light); margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08); }
+
+  .page-footer { text-align:center; padding:32px 0 16px; border-top:1px solid rgba(74,90,42,0.14); margin-top:56px; }
+  .page-footer span { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:14px; color:var(--text-secondary); }
+
+  /* RESPONSIVE */
+  @media (max-width:600px) {
+    .vocab-list { grid-template-columns:1fr; }
+    .match-grid { grid-template-columns:1fr; }
+    .match-col:last-child .match-item { border-top:1px solid rgba(74,90,42,0.05); }
+    .tf-item { gap:8px; }
+    .gap-input { min-width:80px; }
+    .cooldown-box { padding:26px 22px; }
+    .warmup-box { padding:24px 20px; }
+    .ci-input-wrap { flex-direction:column; align-items:flex-start; gap:4px; }
+    .ci-input { width:100%; }
+  }
+  @media (min-width:601px) and (max-width:900px) {
+    .page { padding:0 6% 70px; }
+    .vocab-list { grid-template-columns:1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deco-container">
+  <svg style="position:absolute;top:3%;right:1.5%;width:100px;opacity:0.1;" viewBox="0 0 110 190" fill="none">
+    <path d="M55 8C82 35 98 75 90 122C82 158 55 182 55 182C55 182 28 158 20 122C12 75 28 35 55 8Z" fill="#4A5A2A"/>
+    <line x1="55" y1="8" x2="55" y2="182" stroke="#3A4820" stroke-width="1.5"/>
+    <line x1="55" y1="55" x2="30" y2="82" stroke="#3A4820" stroke-width="1"/>
+    <line x1="55" y1="78" x2="80" y2="105" stroke="#3A4820" stroke-width="1"/>
+    <line x1="55" y1="100" x2="28" y2="122" stroke="#3A4820" stroke-width="1"/>
+    <line x1="55" y1="118" x2="80" y2="138" stroke="#3A4820" stroke-width="1"/>
+  </svg>
+  <svg style="position:absolute;top:28%;left:0;width:58px;opacity:0.08;transform:rotate(-20deg)" viewBox="0 0 70 130" fill="none">
+    <path d="M35 5C55 22 66 52 60 85C54 110 35 128 35 128C35 128 16 110 10 85C4 52 15 22 35 5Z" fill="#6B7A48"/>
+    <line x1="35" y1="5" x2="35" y2="128" stroke="#4A5A2A" stroke-width="1"/>
+    <line x1="35" y1="38" x2="18" y2="60" stroke="#4A5A2A" stroke-width="0.8"/>
+    <line x1="35" y1="58" x2="52" y2="78" stroke="#4A5A2A" stroke-width="0.8"/>
+  </svg>
+  <svg style="position:absolute;bottom:14%;right:1%;width:74px;opacity:0.08;transform:rotate(12deg)" viewBox="0 0 90 155" fill="none">
+    <path d="M45 7C68 30 80 65 74 102C68 132 45 150 45 150C45 150 22 132 16 102C10 65 22 30 45 7Z" fill="#4A5A2A"/>
+    <line x1="45" y1="7" x2="45" y2="150" stroke="#3A4820" stroke-width="1.2"/>
+    <line x1="45" y1="46" x2="24" y2="70" stroke="#3A4820" stroke-width="0.9"/>
+    <line x1="45" y1="72" x2="66" y2="94" stroke="#3A4820" stroke-width="0.9"/>
+  </svg>
+  <svg style="position:absolute;top:52%;left:0.5%;opacity:0.07;width:40px;" viewBox="0 0 44 44">
+    <circle cx="22" cy="22" r="3" fill="#4A5A2A"/><circle cx="8" cy="12" r="2" fill="#4A5A2A"/>
+    <circle cx="36" cy="32" r="2" fill="#4A5A2A"/><circle cx="12" cy="36" r="1.5" fill="#4A5A2A"/>
+    <circle cx="34" cy="10" r="1.5" fill="#4A5A2A"/>
+  </svg>
+</div>
+
+<div class="content-wrap">
+  <header class="site-header">
+    <span class="brand">Nara English</span>
+    <div class="header-line"></div>
+    <span class="year">2026</span>
+  </header>
+
+  <div class="page">
+
+    <!-- ARTICLE -->
+    <section class="article-section">
+      <div class="article-tag">Journal English · B1</div>
+      <h1 class="article-title">How Travel Changes the Way You Think</h1>
+      <p class="article-intro">Most people travel to see new places. But something else happens along the way — something that has nothing to do with landmarks or photos. Travel quietly changes the way you think.</p>
+      <div class="article-content">
+        <h3>You become more open-minded</h3>
+        <p>At home, life follows a routine. The same streets, the same people, the same habits. Travel breaks that pattern. When you see how differently people live around the world — their food, their values, their daily rhythms — your own perspective shifts. What once seemed like "the only way" becomes just one of many ways.</p>
+        <h3>You get better at solving problems</h3>
+        <p>Travel rarely goes exactly as planned. Flights get delayed. Reservations get lost. Language becomes a barrier. But every time something goes wrong, you find a way through it. Over time, that builds real confidence — the kind that stays with you long after you return home.</p>
+        <h3>You learn to be present</h3>
+        <p>Everyday life is full of noise — deadlines, notifications, unfinished tasks. Travel cuts through all of that. When everything around you is new, your attention naturally comes back to the moment. The street in front of you. The food on your plate. The light changing over the water.</p>
+        <h3>You discover things about yourself</h3>
+        <p>Without your usual routine, something unexpected happens — you meet a version of yourself you didn't know existed. Maybe you're more adaptable than you thought. Maybe you enjoy solitude. Maybe you need far less than you believed.</p>
+        <h3>You return home with new eyes</h3>
+        <p>The same apartment. The same city. But you see it differently. Travel has a way of making the familiar feel new again — and that might be its greatest gift.</p>
+      </div>
+    </section>
+
+    <div class="divider"><div class="line"></div><span class="dot">✦</span><div class="line"></div></div>
+
+    <!-- VOCABULARY -->
+    <section>
+      <h2 class="section-title">Vocabulary</h2>
+      <div class="vocab-sub">Words</div>
+      <ul class="vocab-list">
+        <li><span class="vw">landmark</span> <span class="vi">[ˈlændmɑːrk]</span> — <span class="vt">достопримечательность</span></li>
+        <li><span class="vw">perspective</span> <span class="vi">[pəˈspektɪv]</span> — <span class="vt">взгляд, точка зрения</span></li>
+        <li><span class="vw">value</span> <span class="vi">[ˈvæljuː]</span> — <span class="vt">ценность</span></li>
+        <li><span class="vw">rhythm</span> <span class="vi">[ˈrɪðəm]</span> — <span class="vt">ритм, уклад</span></li>
+        <li><span class="vw">confidence</span> <span class="vi">[ˈkɒnfɪdəns]</span> — <span class="vt">уверенность</span></li>
+        <li><span class="vw">solitude</span> <span class="vi">[ˈsɒlɪtjuːd]</span> — <span class="vt">одиночество (в хорошем смысле)</span></li>
+        <li><span class="vw">familiar</span> <span class="vi">[fəˈmɪliər]</span> — <span class="vt">знакомый, привычный</span></li>
+        <li><span class="vw">unexpected</span> <span class="vi">[ˌʌnɪkˈspektɪd]</span> — <span class="vt">неожиданный</span></li>
+        <li><span class="vw">attention</span> <span class="vi">[əˈtenʃən]</span> — <span class="vt">внимание</span></li>
+        <li><span class="vw">reservation</span> <span class="vi">[ˌrezəˈveɪʃən]</span> — <span class="vt">бронь</span></li>
+        <li><span class="vw">notification</span> <span class="vi">[ˌnəʊtɪfɪˈkeɪʃən]</span> — <span class="vt">уведомление</span></li>
+        <li><span class="vw">open-minded</span> <span class="vi">[ˌəʊpən ˈmaɪndɪd]</span> — <span class="vt">с открытым взглядом на мир</span></li>
+        <li><span class="vw">to delay</span> <span class="vi">[dɪˈleɪ]</span> — <span class="vt">задерживать</span></li>
+        <li><span class="vw">to exist</span> <span class="vi">[ɪɡˈzɪst]</span> — <span class="vt">существовать</span></li>
+        <li><span class="vw">to return</span> <span class="vi">[rɪˈtɜːn]</span> — <span class="vt">возвращаться</span></li>
+        <li><span class="vw">to shift</span> <span class="vi">[ʃɪft]</span> — <span class="vt">меняться, сдвигаться</span></li>
+        <li><span class="vw">quietly</span> <span class="vi">[ˈkwaɪətli]</span> — <span class="vt">тихо, незаметно</span></li>
+        <li><span class="vw">rarely</span> <span class="vi">[ˈreəli]</span> — <span class="vt">редко</span></li>
+        <li><span class="vw">exactly</span> <span class="vi">[ɪɡˈzæktli]</span> — <span class="vt">именно, точно</span></li>
+      </ul>
+      <div class="vocab-sub">Phrases</div>
+      <ul class="phrases-list">
+        <li><span class="pe">along the way</span> — <span class="pr">по пути, в процессе</span></li>
+        <li><span class="pe">to break the pattern</span> — <span class="pr">нарушить привычный уклад</span></li>
+        <li><span class="pe">to cut through</span> — <span class="pr">пробиваться сквозь, отсекать</span></li>
+        <li><span class="pe">to get better at something</span> — <span class="pr">становиться лучше в чём-то</span></li>
+        <li><span class="pe">over time</span> — <span class="pr">со временем</span></li>
+        <li><span class="pe">far less than you thought</span> — <span class="pr">гораздо меньше чем ты думал</span></li>
+        <li><span class="pe">long after</span> — <span class="pr">долго после</span></li>
+        <li><span class="pe">in front of you</span> — <span class="pr">перед тобой</span></li>
+      </ul>
+    </section>
+
+    <div class="divider"><div class="line"></div><span class="dot">✦</span><div class="line"></div></div>
+
+    <!-- TASKS -->
+    <section>
+      <h2 class="section-title">Tasks</h2>
+
+      <!-- WARM UP -->
+      <div class="warmup-box">
+        <h3>Warm Up</h3>
+        <ol>
+          <li>Have you ever travelled abroad? How did it feel?</li>
+          <li>Do you think travel can change a person? Why?</li>
+          <li>What is one place you dream of visiting?</li>
+        </ol>
+      </div>
+
+      <!-- TASK 1 -->
+      <div class="task-block">
+        <div class="task-header"><span class="task-num">Task 01</span><span class="task-name">True or False</span></div>
+        <p class="task-inst">Read the sentences. Write True or False based on the article.</p>
+        <ul class="tf-list">
+          <li class="tf-item" data-answer="false"><span class="tf-num">01</span><span class="tf-text">Travel is only about seeing landmarks and taking photos.</span><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'true')">True</button><button class="tf-btn" onclick="checkTF(this,'false')">False</button></div><span class="tf-fb"></span></li>
+          <li class="tf-item" data-answer="true"><span class="tf-num">02</span><span class="tf-text">Routine can limit the way you see the world.</span><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'true')">True</button><button class="tf-btn" onclick="checkTF(this,'false')">False</button></div><span class="tf-fb"></span></li>
+          <li class="tf-item" data-answer="true"><span class="tf-num">03</span><span class="tf-text">When things go wrong while travelling, it builds confidence.</span><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'true')">True</button><button class="tf-btn" onclick="checkTF(this,'false')">False</button></div><span class="tf-fb"></span></li>
+          <li class="tf-item" data-answer="false"><span class="tf-num">04</span><span class="tf-text">Everyday life helps us stay present in the moment.</span><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'true')">True</button><button class="tf-btn" onclick="checkTF(this,'false')">False</button></div><span class="tf-fb"></span></li>
+          <li class="tf-item" data-answer="false"><span class="tf-num">05</span><span class="tf-text">Travel always goes exactly as planned.</span><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'true')">True</button><button class="tf-btn" onclick="checkTF(this,'false')">False</button></div><span class="tf-fb"></span></li>
+          <li class="tf-item" data-answer="true"><span class="tf-num">06</span><span class="tf-text">Meeting people with different values can change your perspective.</span><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'true')">True</button><button class="tf-btn" onclick="checkTF(this,'false')">False</button></div><span class="tf-fb"></span></li>
+          <li class="tf-item" data-answer="false"><span class="tf-num">07</span><span class="tf-text">After travelling, your home feels exactly the same as before.</span><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'true')">True</button><button class="tf-btn" onclick="checkTF(this,'false')">False</button></div><span class="tf-fb"></span></li>
+          <li class="tf-item" data-answer="true"><span class="tf-num">08</span><span class="tf-text">Solitude during travel can help you learn about yourself.</span><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'true')">True</button><button class="tf-btn" onclick="checkTF(this,'false')">False</button></div><span class="tf-fb"></span></li>
+          <li class="tf-item" data-answer="false"><span class="tf-num">09</span><span class="tf-text">Travel only changes you while you are away.</span><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'true')">True</button><button class="tf-btn" onclick="checkTF(this,'false')">False</button></div><span class="tf-fb"></span></li>
+          <li class="tf-item" data-answer="true"><span class="tf-num">10</span><span class="tf-text">Returning home with new eyes is one of the gifts of travel.</span><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'true')">True</button><button class="tf-btn" onclick="checkTF(this,'false')">False</button></div><span class="tf-fb"></span></li>
+        </ul>
+      </div>
+
+      <!-- TASK 2 -->
+      <div class="task-block">
+        <div class="task-header"><span class="task-num">Task 02</span><span class="task-name">Fill in the Gap</span></div>
+        <p class="task-inst">Choose the correct word or phrase.</p>
+        <ul class="gap-list">
+          <li class="gap-item"><span class="gap-num">01</span>My flight was <input class="gap-input" data-answer="delayed" placeholder="___"> by two hours because of bad weather.</li>
+          <li class="gap-item"><span class="gap-num">02</span>She turned off all her <input class="gap-input" data-answer="notifications" placeholder="___"> to focus on the trip.</li>
+          <li class="gap-item"><span class="gap-num">03</span>The old bridge is the most famous <input class="gap-input" data-answer="landmark" placeholder="___"> in the city.</li>
+          <li class="gap-item"><span class="gap-num">04</span>He made a <input class="gap-input" data-answer="reservation" placeholder="___"> at the hotel three weeks before arriving.</li>
+          <li class="gap-item"><span class="gap-num">05</span>Travel changes you <input class="gap-input" data-answer="quietly" placeholder="___"> — you don't even notice it happening.</li>
+          <li class="gap-item"><span class="gap-num">06</span>After living abroad, her whole <input class="gap-input" data-answer="perspective" placeholder="___"> on life shifted.</li>
+          <li class="gap-item"><span class="gap-num">07</span>Every culture has its own <input class="gap-input" data-answer="values" placeholder="___"> and daily <input class="gap-input" data-answer="rhythms" placeholder="___">.</li>
+          <li class="gap-item"><span class="gap-num">08</span>Being alone in a new city taught her to enjoy <input class="gap-input" data-answer="solitude" placeholder="___">.</li>
+          <li class="gap-item"><span class="gap-num">09</span>He is very <input class="gap-input" data-answer="open-minded" placeholder="___"> — he never judges people for thinking differently.</li>
+          <li class="gap-item"><span class="gap-num">10</span><input class="gap-input" data-answer="over time" placeholder="___">, she realised she needed far less than she thought.</li>
+        </ul>
+        <button class="check-btn" onclick="checkGaps()">Check answers</button>
+      </div>
+
+      <!-- TASK 3: MATCH — two columns -->
+      <div class="task-block">
+        <div class="task-header"><span class="task-num">Task 03</span><span class="task-name">Match the Word</span></div>
+        <p class="task-inst">Click a word on the left, then click its definition on the right.</p>
+        <div class="match-grid">
+          <ul class="match-col" id="match-left">
+            <li class="match-item" data-id="1" onclick="selectMatch(this,'left')"><span class="match-badge">1.</span>landmark</li>
+            <li class="match-item" data-id="2" onclick="selectMatch(this,'left')"><span class="match-badge">2.</span>open-minded</li>
+            <li class="match-item" data-id="3" onclick="selectMatch(this,'left')"><span class="match-badge">3.</span>solitude</li>
+            <li class="match-item" data-id="4" onclick="selectMatch(this,'left')"><span class="match-badge">4.</span>to shift</li>
+            <li class="match-item" data-id="5" onclick="selectMatch(this,'left')"><span class="match-badge">5.</span>perspective</li>
+            <li class="match-item" data-id="6" onclick="selectMatch(this,'left')"><span class="match-badge">6.</span>familiar</li>
+            <li class="match-item" data-id="7" onclick="selectMatch(this,'left')"><span class="match-badge">7.</span>confidence</li>
+            <li class="match-item" data-id="8" onclick="selectMatch(this,'left')"><span class="match-badge">8.</span>unexpected</li>
+            <li class="match-item" data-id="9" onclick="selectMatch(this,'left')"><span class="match-badge">9.</span>to exist</li>
+            <li class="match-item" data-id="10" onclick="selectMatch(this,'left')"><span class="match-badge">10.</span>quietly</li>
+          </ul>
+          <ul class="match-col" id="match-right">
+            <li class="match-item" data-id="9" onclick="selectMatch(this,'right')"><span class="match-badge">a.</span>to be real or present in the world</li>
+            <li class="match-item" data-id="1" onclick="selectMatch(this,'right')"><span class="match-badge">b.</span>a well-known place or building</li>
+            <li class="match-item" data-id="5" onclick="selectMatch(this,'right')"><span class="match-badge">c.</span>the way you see and understand things</li>
+            <li class="match-item" data-id="2" onclick="selectMatch(this,'right')"><span class="match-badge">d.</span>willing to consider new ideas and different views</li>
+            <li class="match-item" data-id="6" onclick="selectMatch(this,'right')"><span class="match-badge">e.</span>something you know well</li>
+            <li class="match-item" data-id="7" onclick="selectMatch(this,'right')"><span class="match-badge">f.</span>a feeling of trust in yourself</li>
+            <li class="match-item" data-id="4" onclick="selectMatch(this,'right')"><span class="match-badge">g.</span>to move or change gradually</li>
+            <li class="match-item" data-id="3" onclick="selectMatch(this,'right')"><span class="match-badge">h.</span>the state of being alone and peaceful</li>
+            <li class="match-item" data-id="8" onclick="selectMatch(this,'right')"><span class="match-badge">i.</span>something that surprises you</li>
+            <li class="match-item" data-id="10" onclick="selectMatch(this,'right')"><span class="match-badge">j.</span>in a way that is calm and without noise</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TASK 4 -->
+      <div class="task-block">
+        <div class="task-header"><span class="task-num">Task 04</span><span class="task-name">Find and Correct</span></div>
+        <p class="task-inst">Each sentence has one mistake. Find it and write the correct version below.</p>
+        <ul class="correct-list">
+          <li class="correct-item"><div class="ci-top"><span class="ci-num">01</span><span class="ci-sentence">Travel is just about see new places and taking photos.</span></div><div class="ci-input-wrap"><span class="ci-label">Correction:</span><input class="ci-input" data-answer="travel is just about seeing new places and taking photos." placeholder="write the correct sentence"></div></li>
+          <li class="correct-item"><div class="ci-top"><span class="ci-num">02</span><span class="ci-sentence">My perspective on life has shift after living abroad.</span></div><div class="ci-input-wrap"><span class="ci-label">Correction:</span><input class="ci-input" data-answer="my perspective on life has shifted after living abroad." placeholder="write the correct sentence"></div></li>
+          <li class="correct-item"><div class="ci-top"><span class="ci-num">03</span><span class="ci-sentence">The flight was delay for two hours due to bad weather.</span></div><div class="ci-input-wrap"><span class="ci-label">Correction:</span><input class="ci-input" data-answer="the flight was delayed for two hours due to bad weather." placeholder="write the correct sentence"></div></li>
+          <li class="correct-item"><div class="ci-top"><span class="ci-num">04</span><span class="ci-sentence">She made a reservation on the hotel last week.</span></div><div class="ci-input-wrap"><span class="ci-label">Correction:</span><input class="ci-input" data-answer="she made a reservation at the hotel last week." placeholder="write the correct sentence"></div></li>
+          <li class="correct-item"><div class="ci-top"><span class="ci-num">05</span><span class="ci-sentence">Meeting new people help you become more open-minded.</span></div><div class="ci-input-wrap"><span class="ci-label">Correction:</span><input class="ci-input" data-answer="meeting new people helps you become more open-minded." placeholder="write the correct sentence"></div></li>
+          <li class="correct-item"><div class="ci-top"><span class="ci-num">06</span><span class="ci-sentence">He rarely go exactly as planned on his trips.</span></div><div class="ci-input-wrap"><span class="ci-label">Correction:</span><input class="ci-input" data-answer="he rarely goes exactly as planned on his trips." placeholder="write the correct sentence"></div></li>
+          <li class="correct-item"><div class="ci-top"><span class="ci-num">07</span><span class="ci-sentence">Over time, she getted better at solving problems alone.</span></div><div class="ci-input-wrap"><span class="ci-label">Correction:</span><input class="ci-input" data-answer="over time, she got better at solving problems alone." placeholder="write the correct sentence"></div></li>
+          <li class="correct-item"><div class="ci-top"><span class="ci-num">08</span><span class="ci-sentence">Travelling teach me that I need far less than I thought.</span></div><div class="ci-input-wrap"><span class="ci-label">Correction:</span><input class="ci-input" data-answer="travelling taught me that i need far less than i thought." placeholder="write the correct sentence"></div></li>
+          <li class="correct-item"><div class="ci-top"><span class="ci-num">09</span><span class="ci-sentence">Long after the trip, that feeling of confident stayed with her.</span></div><div class="ci-input-wrap"><span class="ci-label">Correction:</span><input class="ci-input" data-answer="long after the trip, that feeling of confidence stayed with her." placeholder="write the correct sentence"></div></li>
+          <li class="correct-item"><div class="ci-top"><span class="ci-num">10</span><span class="ci-sentence">Something unexpected exist around every corner when you travel.</span></div><div class="ci-input-wrap"><span class="ci-label">Correction:</span><input class="ci-input" data-answer="something unexpected exists around every corner when you travel." placeholder="write the correct sentence"></div></li>
+        </ul>
+        <button class="check-btn" onclick="checkCorrections()">Check answers</button>
+      </div>
+
+      <!-- COOL DOWN -->
+      <div class="cooldown-box">
+        <h3>Cool Down</h3>
+        <p class="cd-sub">Answer these questions. Then write a mini essay of 8–10 sentences.</p>
+        <ol>
+          <li>Where is the most interesting place you have ever been? What made it special?</li>
+          <li>Did that trip change something in you — even in a small way?</li>
+          <li>What kind of traveller are you — do you plan everything or go with the flow?</li>
+          <li>Is there a place you have always wanted to visit? What draws you to it?</li>
+        </ol>
+        <p class="cd-tip">Use the vocabulary from this lesson. Try to write naturally — as if you are telling a story.</p>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>Nara English · Journal English · 2026</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+  function checkTF(btn, chosen) {
+    const item = btn.closest('.tf-item');
+    const answer = item.dataset.answer;
+    const fb = item.querySelector('.tf-fb');
+    item.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('correct','wrong'));
+    if (chosen === answer) {
+      btn.classList.add('correct'); fb.textContent = '✓'; fb.style.color = '#4A7A3A';
+    } else {
+      btn.classList.add('wrong'); fb.textContent = '✗'; fb.style.color = '#8A3A2A';
+      item.querySelectorAll('.tf-btn').forEach(b => { if (b.textContent.toLowerCase() === answer) b.classList.add('correct'); });
+    }
+  }
+
+  function checkGaps() {
+    document.querySelectorAll('.gap-input').forEach(input => {
+      const a = input.dataset.answer.toLowerCase().trim();
+      const v = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (v === a) input.classList.add('correct');
+      else if (v.length > 0) input.classList.add('wrong');
+    });
+  }
+
+  let selL = null, selR = null;
+  function selectMatch(el, side) {
+    if (el.classList.contains('matched-correct')) return;
+    if (side === 'left') {
+      document.querySelectorAll('#match-left .match-item').forEach(i => i.classList.remove('selected'));
+      el.classList.add('selected'); selL = el;
+    } else {
+      document.querySelectorAll('#match-right .match-item').forEach(i => i.classList.remove('selected'));
+      el.classList.add('selected'); selR = el;
+    }
+    if (selL && selR) {
+      if (selL.dataset.id === selR.dataset.id) {
+        selL.classList.remove('selected'); selR.classList.remove('selected');
+        selL.classList.add('matched-correct'); selR.classList.add('matched-correct');
+      } else {
+        const l = selL, r = selR;
+        l.classList.remove('selected'); r.classList.remove('selected');
+        l.classList.add('matched-wrong'); r.classList.add('matched-wrong');
+        setTimeout(() => { l.classList.remove('matched-wrong'); r.classList.remove('matched-wrong'); }, 700);
+      }
+      selL = null; selR = null;
+    }
+  }
+
+  function checkCorrections() {
+    document.querySelectorAll('.ci-input').forEach(input => {
+      const a = input.dataset.answer.toLowerCase().trim();
+      const v = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (v === a) input.classList.add('correct');
+      else if (v.length > 0) input.classList.add('wrong');
+    });
+  }
+</script>
+</body>
+</html>
